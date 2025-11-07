@@ -5,3 +5,4 @@ documents/chapter1/TextClassification.zip
 documents/chapter1/TextClassificationCustom.zip
 *.pdf
 */.idea/*
+*.zip
