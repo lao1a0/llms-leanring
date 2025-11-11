@@ -6,3 +6,6 @@ documents/chapter1/TextClassificationCustom.zip
 *.pdf
 */.idea/*
 *.zip
+/.idea/*
+documents/chapter3/Qwen2.5-0.5B-Instruct/*
+documents/chapter4/twitter-roberta-base-sentiment-latest/*
