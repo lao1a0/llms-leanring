@@ -1,11 +1,8 @@
 .DS_Store
-documents/chapter1/TextClassification/*
-documents/chapter1/TextClassificationCustom/*
-documents/chapter1/TextClassification.zip
-documents/chapter1/TextClassificationCustom.zip
+*.zip
+*.bin
+*.sentiment
 *.pdf
 */.idea/*
 *.zip
 /.idea/*
-documents/chapter3/Qwen2.5-0.5B-Instruct/*
-documents/chapter4/twitter-roberta-base-sentiment-latest/*
