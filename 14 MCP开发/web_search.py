@@ -1,3 +1,37 @@
+with open("api_key.txt", "r") as f:
+    api_key = f.read().strip()
+
+# 测试key
+# def run_v4_sync():
+#     msg = [
+#         {
+#             "role": "user",
+#             "content":"中国队奥运会拿了多少奖牌"
+#         }
+#     ]
+#     tool = "web-search-pro"
+#     url = "https://open.bigmodel.cn/api/paas/v4/tools"
+#     request_id = str(uuid.uuid4())
+#     data = {
+#         "request_id": request_id,
+#         "tool": tool,
+#         "stream": False,
+#         "messages": msg
+#     }
+#
+#     resp = requests.post(
+#         url,
+#         json=data,
+#         headers={'Authorization': api_key},
+#         timeout=300
+#     )
+#     print(resp.content.decode())
+#
+#
+#
+# if __name__ == '__main__':
+#     run_v4_sync()
+
 import httpx
 from mcp.server import FastMCP
 
@@ -7,10 +41,20 @@ app = FastMCP('web-search')
 
 @app.tool()
 async def web_search(query: str) -> str:
+    """
+    搜索互联网内容
+
+    Args:
+        query: 要搜索内容
+
+    Returns:
+        搜索结果的总结
+    """
+    print(api_key)
     async with httpx.AsyncClient() as client:
         response = await client.post(
             'https://open.bigmodel.cn/api/paas/v4/tools',
-            headers={'Authorization': '11bf59d1fa39419fb94c5adfbfd295d6.YPJVVEnUxTGD3kfR'},
+            headers={'Authorization': "92fdeac0062a4c43a4f628f468221bdd.Jgv0olWyZxNast1y"},
             json={
                 'tool': 'web-search-pro',
                 'messages': [
@@ -19,7 +63,6 @@ async def web_search(query: str) -> str:
                 'stream': False
             }
         )
-
         res_data = []
         for choice in response.json()['choices']:
             for message in choice['message']['tool_calls']:
@@ -32,5 +75,5 @@ async def web_search(query: str) -> str:
         return '\n\n\n'.join(res_data)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(transport='stdio')
