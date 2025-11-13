@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "image_server": {
+      "command": "D:\\miniconda3\\envs\\mcp-env\\python.exe",
+      "args": [
+        "C:\\Users\\11257\\Documents\\dive-into-llms\\14 MCP开发\\image_server.py"
+      ],
+      "env": {},
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
